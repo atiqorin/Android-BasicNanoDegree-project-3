@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Questions">
+        <item>Is John Snow dead?(Yes/No)</item>
+        <item>Which of these are Lannisters?</item>
+        <item>Who is this character?</item>
+        <item>What is Hounds favourite food?</item>
+        <item>Is Arya dead?</item>
+        <item>Who is mother of dragons?</item>
+        <item>Lannisters always pays what?</item>
+    </string-array>
+    <string-array name="Answers">
+        <item>No</item>
+        <item>Jaime,Joffrey,Tywin,Tyrion</item>
+        <item>Hodor</item>
+        <item>Chicken</item>
+        <item>No</item>
+        <item>Danny</item>
+        <item>Debt</item>
+    </string-array>
+
+    <string-array name="Q_for_0">
+        <item>No</item>
+        <item>Yes</item>
+    </string-array>
+    <string-array name="Q_for_1">
+        <item>Jaime</item>
+        <item>Joffrey</item>
+        <item>Tywin</item>
+        <item>Tyrion</item>
+    </string-array>
+    <string-array name="Q_for_2">
+        <item>Hodor</item>
+        <item>Ramsey</item>
+    </string-array>
+    <string-array name="Q_for_3">
+        <item>Nuggets</item>
+        <item>Candy</item>
+        <item>Chicken</item>
+        <item>Children</item>
+    </string-array>
+    <string-array name="Q_for_4">
+        <item>No</item>
+        <item>Yes</item>
+        <item>Both</item>
+    </string-array>
+    <string-array name="Q_for_5">
+        <item>You</item>
+        <item>Khal Drogo</item>
+        <item>Danny</item>
+        <item>Ned Stark</item>
+    </string-array>
+    <string-array name="Q_for_6">
+        <item>Cash</item>
+        <item>Debt</item>
+        <item>Fine</item>
+        <item>Parking Ticket</item>
+    </string-array>
+
+</resources>
