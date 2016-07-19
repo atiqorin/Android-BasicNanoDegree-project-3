@@ -23,14 +23,27 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout options;
     TextView questionHolder;
-    String[] questions,answers,Q_for_0,Q_for_1,Q_for_2,Q_for_3,Q_for_4,Q_for_5,Q_for_6;
+    String[] questions;
+    String[] answers;
+    String[] Q_for_0;
+    String[] Q_for_1;
+    String[] Q_for_2;
+    String[] Q_for_3;
+    String[] Q_for_4;
+    String[] Q_for_5;
+    String[] Q_for_6;
     RadioGroup radioGroup;
-    CheckBox ans_option_1, ans_option_2, ans_option_3, ans_option_4;
-    ArrayList<String> checkedboxes=new ArrayList<>();
+    CheckBox ans_option_1;
+    CheckBox ans_option_2;
+    CheckBox ans_option_3;
+    CheckBox ans_option_4;
+    ArrayList<String> checkedboxes;
     EditText answer_0;
     Button score;
-    int number=0,gameScore=0;
-
+    int number=0;
+    int gameScore=0;
+    String onSavedNumber="Number";
+    String onSavedScore = "Score";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         answers = getResources().getStringArray(R.array.Answers);
         radioGroup =new RadioGroup(getApplicationContext());
         score=(Button)findViewById(R.id.Score);
-
+        checkedboxes = new ArrayList<>();
         Q_for_0=getResources().getStringArray(R.array.Q_for_0);
         Q_for_1=getResources().getStringArray(R.array.Q_for_1);
         Q_for_2=getResources().getStringArray(R.array.Q_for_2);
@@ -49,7 +62,11 @@ public class MainActivity extends AppCompatActivity {
         Q_for_5=getResources().getStringArray(R.array.Q_for_5);
         Q_for_6=getResources().getStringArray(R.array.Q_for_6);
 
-        score.setText("Score: 0");
+        if(savedInstanceState!=null) {
+            number = savedInstanceState.getInt(onSavedNumber);
+            gameScore = savedInstanceState.getInt(onSavedScore);
+        }
+        score.setText("Score: "+ gameScore);
         updateView();
     }
     public void updateScore(Boolean proceed){
@@ -66,6 +83,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt(onSavedNumber,number);
+        outState.putInt(onSavedScore,gameScore);
+        super.onSaveInstanceState(outState);
+    }
+
     public void checkAnswers(View v){
 
         switch (number){
@@ -396,7 +421,9 @@ public class MainActivity extends AppCompatActivity {
             }
         } else {
             number = 0;
-            Toast.makeText(MainActivity.this, "Reached End. Restarting.", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Reached End. Your Score: "+gameScore, Toast.LENGTH_LONG).show();
+            gameScore=0;
+            score.setText("Score: "+ gameScore);
             updateView();
         }
     }
